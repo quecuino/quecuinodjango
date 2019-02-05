@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>QueCuino</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    {% load static %}
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/main.css' %}" />
+
+
+</head>
+{% load static %}
+<body background="{% static 'Images/fondo_registro.jpg' %}" style="background-size:cover ">
+<!-- NAVBAR -->
+{% if user.is_authenticated %}
+    <nav>
+        <div class="nav-wrapper grey darken-4">
+                <a href="{% url 'index' %}"><img src="{% static 'Images/logo.png' %}" style="width: 150px" href="#" class="brand-logo"></img></a>            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><li><i class="white-text material-icons prefix">search<input type="text" placeholder="search" id="autocomplete-input" class="autocomplete white-text"></i></li>
+                <li><a href="" class="modal-trigger grey darken-4"><i class="material-icons right">whatshot</i>Hall of Fame</a></li>
+                <li><a href="#registro" class="modal-trigger  orange lighten-2"><i class="material-icons right">person</i>Bienvenido,{{ user.get_username }}</a></li>
+            </ul>
+        </div>
+    </nav>
+    {% else %}
+    <nav>
+        <div class="nav-wrapper grey darken-4">
+            <a href="{% url 'index' %}"><img src="{% static 'Images/logo.png' %}" style="width: 150px" href="#" class="brand-logo"></img></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><i class="red-text material-icons prefix">search<input type="text" placeholder="search" id="autocomplete-input" class="autocomplete red-text"></i></li>
+                <li><a href="" class="modal-trigger grey darken-4"><i class="material-icons right">whatshot</i>Hall Of Fame</a></li>
+                <li><a href="#login" class="modal-trigger  orange lighten-2"><i class="material-icons right">person</i>Login</a></li>
+            </ul>
+        </div>
+    </nav>
+{% endif %}
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- MODAL NAVBAR -->
+    <div id="login" class="modal ">
+        <h5 class="modal-close"></h5>
+        <div class="modal-content center">
+            <h4>Benvingut a QueCuino.cat</h4>
+            <br>
+
+            <form method="post" action="{% url 'login'  %}">
+              {% csrf_token %}
+                <div class="input-field">
+                    <i class="material-icons prefix">person</i>
+                    <input type="text" class="form-control" name="username">
+                    <label for="name">Usuari</label>
+                </div>
+                <br>
+                <div class="input-field">
+                    <i class="material-icons prefix">lock</i>
+                    <input type="password" class="form-control" name="password">
+                    <label for="pass">Contrasenya</label>
+                </div>
+                <br>
+                <a href="{% url 'register' %}">No tens compte? Registrat aquí</a>
+                <br>
+                <input type="submit" value="login" class="brown darken-2 btn btn-large">
+                <input type="hidden" name="next" value="{{ next }}">
+            </form>
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- FOOTER -->
+    <footer class="page-footer grey darken-4">
+        <div class="container">
+          <div class="row">
+                <div class="col 12">
+                    <h5></h5>
+                </div>
+            <div class="col 2">
+                <div class="row">
+                </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </footer>
+</body>
+
+</html>

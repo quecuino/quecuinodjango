@@ -1,0 +1,57 @@
+
+  .modal{
+   max-height:100%;
+   overflow:hidden;
+  }
+  
+  input[type="submit"]{
+    width: 100%;
+    margin-top: 50px;
+  }
+  .modal-close{
+    position: absolute;
+    top:10px;
+    right:10px;
+    padding:0;
+    margin:0;
+  }
+.bg{
+    background-image: url("Images/aaa.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width:100%;
+
+}
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+  
+  input[type=text]:focus {
+    width: 100%;
+  }
+  .search:hover{
+      height: 150%;
+  }
+  
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
