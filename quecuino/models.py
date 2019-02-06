@@ -20,7 +20,7 @@ class Recepta(models.Model):
     nom_user = models.ForeignKey(Usuari, on_delete=models.CASCADE)
     data_creacio = models.DateField()
     descripcio = models.CharField(max_length=100)
-    ingredients = models.CharField(max_length=300)
+
     procediment = models.CharField(max_length=2000)
     vots = models.IntegerField()
     imatge = models.CharField(max_length=50, default='')
