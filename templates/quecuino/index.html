@@ -3,19 +3,28 @@
 <main class="z-index:10">
             {% if recetas %}
             {% for receta in recetas   %}
-                <div class="container" style="margin-top: 5%; margin-bottom: 5%">
-                <ul class="collapsible popout">
-                    <li>
-                        <div class="collapsible-header">
-                            <div class="row">
-
-                                <h4>{{ receta.procediment }}</h4>
+               <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <ul class="collapsible popout">
+                        <li>
+                            <div class="collapsible-header">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <h5>{{ receta.nom_recepta }}</h5>
+                                            <p>{{ receta.descripcio }}</p>
+                                            <p>{{ receta.data_creacio }}</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="collapsible-body" style="background-color: white;"><span>{{ receta.descripcio }}</span></div>
-                    </li>
-                </ul>
+                            <div class="collapsible-body" style="background-color: white;"><span>{{ receta.procediment}}</span></div>
+                        </li>
+                    </ul>
                 </div>
+            </div>
+        </div>
             {% endfor %}
             {% else %}
                 <p>No he recibido respuestas de la base de datos</p>x
