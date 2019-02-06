@@ -78,8 +78,8 @@ WSGI_APPLICATION = 'proyecto2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'quecuinodb2',
-        'USER': 'quecuinodatab2',
+        'NAME': 'quecuinodb',
+        'USER': 'quecuinodatab',
         'PASSWORD': 'Manzanapodrida22',
         'HOST': 'hl379.dinaserver.com',  # Or an IP Address that your DB is hosted on
         'PORT': '3306',
