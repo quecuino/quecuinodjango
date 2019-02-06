@@ -16,7 +16,7 @@ class Usuari(models.Model):
         return self.user.username
 
 class Recepta(models.Model):
-    nom_recepta = models.CharField(max_length=16)
+    nom_recepta = models.CharField(max_length=50)
     nom_user = models.ForeignKey(Usuari, on_delete=models.CASCADE)
     data_creacio = models.DateField()
     descripcio = models.CharField(max_length=100)
