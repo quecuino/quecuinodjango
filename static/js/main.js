@@ -6,4 +6,7 @@ $(document).ready(function(){
         $("html, body").animate({ scrollTop: 0 }, 600);
         return false;
     });
+      $(".dropdown-trigger").dropdown({
+   coverTrigger: false
+});
 });

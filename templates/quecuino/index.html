@@ -12,6 +12,9 @@
                             <div class="collapsible-header">
                                 <div class="container">
                                     <div class="row">
+                                        <div class="col 4">
+                                        <img src="{% static "Images/like.gif" %}" style="width:20%;height: 20%">
+                                        </div>
                                         <div class="col s6">
                                             <h5>{{ receta.nom_recepta }}</h5>
                                             <p>{{ receta.descripcio }}</p>
@@ -25,8 +28,7 @@
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col 12">
-                                                <img class="center-align" src="{% static "Images/plato.jpg" %}" style="width:100%; height:auto; margin-right:auto;margin-left:auto";>
-                                            </div>
+                                            <img class="center-align" src="{% static "Images/plato.jpg" %}" style="width:100%; height:auto; margin-right:auto;margin-left:auto";>
                                             <div class="col 12">
                                                 <h3>{{ receta.nom_recepta }}</h3>
                                                 <p>{{ receta.descripcio }}</p>
@@ -38,6 +40,7 @@
                                             <div class="col 12">
                                                 <h5>Procediment</h5>
                                                 <p>{{ receta.procediment }}</p>
+                                            </div>
                                             </div>
                                         </div>
                                     </div>
