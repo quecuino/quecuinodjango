@@ -1,5 +1,5 @@
 from django import forms
-from quecuino.models import Usuari
+from quecuino.models import Usuari, Recepta
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 class FormUser(UserCreationForm):
@@ -27,4 +27,13 @@ class FormUserextendido(forms.ModelForm):
         widgets = {
             'datanaixament':forms.DateInput()
         }
-
+class Formcrearreceta(forms.ModelForm):
+    class Meta:
+        model = Recepta
+        fields = ['nom_recepta', 'descripcio','ingredients','procediment']
+        labels = {
+            'nom_recepta': 'Nom recepta',
+            'descripcio': 'Descripcio',
+            'ingredients': 'Ingredients',
+            'procediment': 'Procediment'
+        }

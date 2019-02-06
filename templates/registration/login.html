@@ -7,7 +7,9 @@
     {% if next %}
     <p>No puedes acceder aqui.</p>
     {% endif %}
-
+    <div class="container" style="background-color: white; margin-top: 8%; margin-bottom: 8%">
+    <div class="row">
+        <div class="col s12">
     <form method="post" action="{% url 'login'  %}">
         {% csrf_token %}
 
@@ -17,4 +19,8 @@
         <input type="submit" value='login'>
         <input type="hidden" name="next" value="{{ next }}">
     </form>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
