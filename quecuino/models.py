@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 # Create your models here.
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
 # Create your models here.
 class Usuari(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -18,11 +19,11 @@ class Usuari(models.Model):
 class Recepta(models.Model):
     nom_recepta = models.CharField(max_length=50)
     nom_user = models.ForeignKey(Usuari, on_delete=models.CASCADE)
-    data_creacio = models.DateField()
-    descripcio = models.CharField(max_length=100)
+    data_creacio = models.DateField(default=datetime.now)
+    descripcio = models.CharField(max_length=100, )
     ingredients = models.CharField(max_length=300)
     procediment = models.CharField(max_length=2000)
-    vots = models.IntegerField()
+    vots = models.IntegerField(default=0, )
     imatge = models.CharField(max_length=50, default='')
 
 

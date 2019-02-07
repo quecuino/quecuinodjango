@@ -33,17 +33,11 @@ class FormUserextendido(forms.ModelForm):
 
 
 class Formreceta(forms.ModelForm):
+
     class Meta:
         model = Recepta
-        fields = ['nom_recepta', 'descripcio','ingredients','procediment']
-        labels = {
-            'nom_recepta': 'Nom recepta',
-            'descripcio': 'Descripcio',
-            'ingredients': 'Ingredients',
-            'procediment': 'Procediment'
-        }
-        widgets = {
-            'descripcio': forms.Textarea(attrs={'cols': 80, 'rows': 20, 'style':'resize:none;'}),
-            'ingredients': forms.Textarea(attrs={'cols': 80, 'rows': 20, 'style':'resize:none;'}),
-            'procediment': forms.Textarea(attrs={'cols': 80, 'rows': 20, 'style':'resize:none;'}),
-        }
+        exclude = ['nom_user','imatge']
+
+
+
+

@@ -55,15 +55,16 @@
             {% else %}
                 <p>No he recibido respuestas de la base de datos</p>x
             {% endif %}
+
 <div class="fixed-action-btn" style="margin-bottom: 5%;">
   <a class="btn-floating btn-large orange" id="scroll" >
     <i class="large material-icons">publish</i>
   </a>
   <ul>
+       {% if user.is_authenticated %}
     <li><a class="btn-floating orange modal-trigger" href="{% url 'receta' %}"><i class="material-icons">mode_edit</i></a>
     </li>
-
-
+      {% endif %}
   </ul>
 </div>
 

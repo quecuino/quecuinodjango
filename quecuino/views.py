@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
 from quecuino.forms import FormUser, FormUserextendido, Formreceta
 from quecuino.models import Usuari, Recepta
-from datetime import date
+from datetime import datetime
 
 # Create your views here.
 
@@ -18,19 +18,24 @@ from datetime import date
 def receta(request):
     print('entra')
     if request.method == 'POST':
+        usuario = request.user
+        usuariof = Usuari.objects.get(user=usuario)
+        print usuariof.id
         print('recetadentro')
-        formre = Formreceta(request.POST)
+        formre = Formreceta()
+        print formre.is_valid()
+        formli = formre.cleaned_data
+
+
         if formre.is_valid():
             print('recetamuydentro')
-            Recepta.nom_user = formre.cleaned_data['']
-            Recepta.data_creacio = date
-            Recepta.vots = 0
             formre.save()
+
             return redirect('index')
     else:
         formre = Formreceta()
     context = {'formre': formre}
-    return render(request, 'quecuino/crearreceta.html',context)
+    return render(request, 'quecuino/crearreceta.html', context)
 
 
 def index(request):
