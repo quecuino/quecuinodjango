@@ -5,5 +5,6 @@ from quecuino.views import index,register
 urlpatterns = [
     url(r'^$',views.index, name='index'),
     url(r'^registro',views.register, name='register'),
-    url(r'^login/$',auth_views.login, name='login')
+    url(r'^login/$',auth_views.login, name='login'),
+
 ]

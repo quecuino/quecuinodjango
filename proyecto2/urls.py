@@ -16,10 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url, include
 from quecuino import views
-
+from django.contrib.auth.decorators import login_required
 urlpatterns = [
     url('admin/', admin.site.urls),
     url('',include('quecuino.urls')),
     url('accounts/',include('django.contrib.auth.urls')),
     url(r'^registro',views.register, name='register'),
+    url(r'^receta',views.receta, name='receta'),
+
+
 ]

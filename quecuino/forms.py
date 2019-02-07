@@ -2,6 +2,8 @@ from django import forms
 from quecuino.models import Usuari, Recepta
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+
+
 class FormUser(UserCreationForm):
     class Meta:
         model=User
@@ -15,6 +17,7 @@ class FormUser(UserCreationForm):
                 user.save()
             return user
 
+
 class FormUserextendido(forms.ModelForm):
     class Meta:
         model = Usuari
@@ -27,7 +30,9 @@ class FormUserextendido(forms.ModelForm):
         widgets = {
             'datanaixament':forms.DateInput()
         }
-class Formcrearreceta(forms.ModelForm):
+
+
+class Formreceta(forms.ModelForm):
     class Meta:
         model = Recepta
         fields = ['nom_recepta', 'descripcio','ingredients','procediment']
@@ -36,4 +41,9 @@ class Formcrearreceta(forms.ModelForm):
             'descripcio': 'Descripcio',
             'ingredients': 'Ingredients',
             'procediment': 'Procediment'
+        }
+        widgets = {
+            'descripcio': forms.Textarea(attrs={'cols': 80, 'rows': 20, 'style':'resize:none;'}),
+            'ingredients': forms.Textarea(attrs={'cols': 80, 'rows': 20, 'style':'resize:none;'}),
+            'procediment': forms.Textarea(attrs={'cols': 80, 'rows': 20, 'style':'resize:none;'}),
         }
