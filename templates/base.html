@@ -21,14 +21,12 @@
 
 </head>
 {% load static %}
-<body background="{% static 'Images/fondo_registro.jpg' %}">
+<body background="{% static 'Images/fondo_registro.jpg' %}" style="background-size:cover ">
 <!-- NAVBAR -->
 {% if user.is_authenticated %}
     <nav>
         <div class="nav-wrapper grey darken-4">
                 <a href="{% url 'index' %}"><img src="{% static 'Images/logo.png' %}" style="width: 150px" href="#" class="brand-logo"></img></a>           <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><li><i class="white-text material-icons prefix">search<input type="text" placeholder="search" id="autocomplete-input" class="autocomplete white-text"></i></li>
-                <li><a href="" class="modal-trigger grey darken-4"><i class="material-icons right">whatshot</i>Hall of Fame</a></li>
                 <li><a  data-target='dropdown1'  href="#registro" class="dropdown-trigger  orange lighten-2"><i class="material-icons right">person</i>Bienvenido,{{ user.get_username }}</a>
 
                     <!-- Dropdown Structure -->
