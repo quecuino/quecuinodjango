@@ -18,19 +18,13 @@ from datetime import datetime
 def receta(request):
     print('entra')
     if request.method == 'POST':
-        usuario = request.user
-        usuariof = Usuari.objects.get(user=usuario)
-        print usuariof.id
         print('recetadentro')
-        formre = Formreceta()
+        formre = Formreceta(request.POST)
         print formre.is_valid()
-        formli = formre.cleaned_data
-
-
         if formre.is_valid():
-            print('recetamuydentro')
+            pa = request.user
+            formre.nom_user = pa
             formre.save()
-
             return redirect('index')
     else:
         formre = Formreceta()

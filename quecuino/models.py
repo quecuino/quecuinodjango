@@ -18,7 +18,7 @@ class Usuari(models.Model):
 
 class Recepta(models.Model):
     nom_recepta = models.CharField(max_length=50)
-    nom_user = models.ForeignKey(Usuari, on_delete=models.CASCADE)
+    nom_user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     data_creacio = models.DateField(default=datetime.now)
     descripcio = models.CharField(max_length=100, )
     ingredients = models.CharField(max_length=300)

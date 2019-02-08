@@ -36,7 +36,21 @@ class Formreceta(forms.ModelForm):
 
     class Meta:
         model = Recepta
-        exclude = ['nom_user','imatge']
+        fields =[ 'nom_recepta','nom_user', 'descripcio', 'ingredients', 'procediment']
+        widgets ={
+            'nom_user':forms.HiddenInput()
+        }
+
+    #def __init__(self, *args, **kwargs):
+     #   self._user = kwargs.pop('nom_user')
+      #  super(Formreceta, self).__init__(*args, **kwargs)
+    #def save(self, commit=True):
+     #   inst = super(Formreceta, self).save(commit=False)
+       # inst.nom_user = self._user
+       # if commit:
+        #    inst.save()
+         #   self.save_m2m()
+       # return inst
 
 
 
