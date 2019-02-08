@@ -6,6 +6,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
 from quecuino.forms import FormUser, FormUserextendido, Formreceta
@@ -18,19 +19,12 @@ from datetime import datetime
 def receta(request):
     print('entra')
     if request.method == 'POST':
-        usuario = request.user
-        usuariof = Usuari.objects.get(user=usuario)
-        print usuariof.id
         print('recetadentro')
-        formre = Formreceta()
-        print formre.is_valid()
-        formli = formre.cleaned_data
-
-
+        formre = Formreceta(request.POST)
         if formre.is_valid():
-            print('recetamuydentro')
-            formre.save()
-
+            personal = formre.save(commit=False)
+            personal.nom_user = request.user
+            personal.save()
             return redirect('index')
     else:
         formre = Formreceta()
