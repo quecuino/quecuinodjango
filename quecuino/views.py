@@ -22,9 +22,10 @@ def receta(request):
         formre = Formreceta(request.POST)
         print formre.is_valid()
         if formre.is_valid():
-            pa = request.user
-            formre.nom_user = pa
-            formre.save()
+            nueva_receta = formre.save(commit=False)
+            usuario = Usuari.objects.get(id=request.user.id)
+            nueva_receta.usuario = usuario
+            nueva_receta.save()
             return redirect('index')
     else:
         formre = Formreceta()

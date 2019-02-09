@@ -36,10 +36,8 @@ class Formreceta(forms.ModelForm):
 
     class Meta:
         model = Recepta
-        fields =[ 'nom_recepta','nom_user', 'descripcio', 'ingredients', 'procediment']
-        widgets ={
-            'nom_user':forms.HiddenInput()
-        }
+        fields =[ 'nom_recepta', 'descripcio', 'ingredients', 'procediment']
+
 
     #def __init__(self, *args, **kwargs):
      #   self._user = kwargs.pop('nom_user')
