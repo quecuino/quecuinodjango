@@ -13,13 +13,18 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col 4">
+                                            <form action="{% url 'like_receta' %}" method="POST">
+                                                {% csrf_token %}
+                                                <button type="submit" name="receta_id" value="{{ receta.id }}" class="btn btn-primary">LIKE</button>
+
+                                            </form>
                                         <img src="{% static "Images/like.gif" %}" style="width:20%;height: 20%">
                                         </div>
                                         <div class="col s6">
                                             <h5>{{ receta.nom_recepta }}</h5>
                                             <p>{{ receta.descripcio }}</p>
                                             <p>{{ receta.data_creacio }}</p>
-                                            <p>{{ receta.nom_user }}</p>
+                                            <p>{{ receta.usuario }}</p>
                                         </div>
                                     </div>
                                 </div>

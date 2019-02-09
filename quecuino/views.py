@@ -6,13 +6,12 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
 from quecuino.forms import FormUser, FormUserextendido, Formreceta
 from quecuino.models import Usuari, Recepta
-from datetime import datetime
-
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 # Create your views here.
 
 
@@ -21,10 +20,12 @@ def receta(request):
     if request.method == 'POST':
         print('recetadentro')
         formre = Formreceta(request.POST)
+        print formre.is_valid()
         if formre.is_valid():
-            personal = formre.save(commit=False)
-            personal.nom_user = request.user
-            personal.save()
+            nueva_receta = formre.save(commit=False)
+            usuario = Usuari.objects.get(id=request.user.id)
+            nueva_receta.usuario = usuario
+            nueva_receta.save()
             return redirect('index')
     else:
         formre = Formreceta()
@@ -65,3 +66,9 @@ def register(request):
 def logout(request):
     logout(request)
     return render(request, 'quecuino/index.html')
+
+def like_receta(request):
+    post = get_object_or_404(Recepta, id=request.POST.get('receta_id'))
+    usuari = Usuari.objects.get(id=request.user.id)
+    post.vots.add(usuari)
+    return render (request, 'quecuino/index.html')
