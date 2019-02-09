@@ -10,7 +10,8 @@
                     <div class="col s12 m4 l4" style="margin-bottom:3%; margin-top: 3%;">
                         <div class="card" style="width:95%; height: 80%">
                             <div class="card-image">
-                                <img src="{% static "Images/plato.jpg" %}">
+                                {% load static %}
+                                <img src="{{ receta.imatge }} ">
                                    <span class="card-title">{{ receta.nom_recepta}}</span>
                             </div>
                             <div class="card-content">

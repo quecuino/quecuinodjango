@@ -21,7 +21,7 @@ class FormUser(UserCreationForm):
 class FormUserextendido(forms.ModelForm):
     class Meta:
         model = Usuari
-        fields = [ 'nom','cognom','sexe','datanaixament','email' ]
+        fields = [ 'nom','cognom','sexe','datanaixament','email', ]
         labels ={'nom':'Nom',
                  'cognom':'Cognom',
                  'sexe':'Sexe',
@@ -36,7 +36,8 @@ class Formreceta(forms.ModelForm):
 
     class Meta:
         model = Recepta
-        fields =[ 'nom_recepta', 'descripcio', 'ingredients', 'procediment']
+        fields =[ 'nom_recepta', 'descripcio', 'ingredients', 'procediment','imatge']
+
 
 
     #def __init__(self, *args, **kwargs):

@@ -19,7 +19,7 @@ def receta(request):
     print('entra')
     if request.method == 'POST':
         print('recetadentro')
-        formre = Formreceta(request.POST)
+        formre = Formreceta(request.POST,request.FILES)
         print formre.is_valid()
         if formre.is_valid():
             nueva_receta = formre.save(commit=False)

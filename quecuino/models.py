@@ -7,7 +7,6 @@ from datetime import datetime
 from django.urls import reverse
 from django.utils.text import slugify
 
-
 # Create your models here.
 class Usuari(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -30,7 +29,7 @@ class Recepta(models.Model):
     procediment = models.CharField(max_length=2000)
     vots = models.ManyToManyField(Usuari, related_name='likes',blank=True)
     votsenumero = models.IntegerField(default=0)
-    imatge = models.CharField(max_length=50, default='')
+    imatge = models.ImageField(upload_to='static/Images')
 
     def save(self,*args, **kwargs):
         self.slug = slugify(self.nom_recepta)
@@ -41,5 +40,7 @@ class Recepta(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:post_detail', args=[self.id, self.slug])
+
+
 
 
