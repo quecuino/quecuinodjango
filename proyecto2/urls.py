@@ -21,8 +21,8 @@ urlpatterns = [
     url('admin/', admin.site.urls),
     url('',include('quecuino.urls')),
     url('accounts/',include('django.contrib.auth.urls')),
-    url(r'^registro',views.register, name='register'),
-    url(r'^receta',views.receta, name='receta'),
+    url(r'^registro$',views.register, name='register'),
+    url(r'^receta$',views.receta, name='receta'),
 
 
 ]

@@ -35,8 +35,8 @@ def receta(request):
 
 def index(request):
     recetas = Recepta.objects.order_by()
-    is_liked = False
-    return render(request, 'quecuino/index.html', {'recetas': recetas},{'is_liked':is_liked})
+    return render(request, 'quecuino/index.html', {'recetas': recetas}, )
+
 
 
 def register(request):
@@ -66,6 +66,14 @@ def register(request):
 def logout(request):
     logout(request)
     return render(request, 'quecuino/index.html')
+
+def post_detail(request, id, nom_recepta):
+    post = Recepta.objects.get(id=id)
+    context = {
+        'post': post,
+        'totallikes':post.votstotals(),
+    }
+    return render(request, 'quecuino/mostrarreceta.html',context)
 
 def like_receta(request):
     post = get_object_or_404(Recepta, id=request.POST.get('receta_id'))

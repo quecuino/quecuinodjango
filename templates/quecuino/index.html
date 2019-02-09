@@ -13,14 +13,7 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col 4">
-                                            <form action="{% url 'like_receta' %}" method="POST">
-                                                {% csrf_token %}
-                                                {% if is_liked %}
-                                                <button type="submit" name="receta_id" value="{{ receta.id }}" class="btn btn-danger">Dislike</button>
-                                                 {% else %}
-                                                    <button type="submit" name="receta_id" value="{{ receta.id }}" class="btn btn-primary">Like</button>
-                                                {% endif %}
-                                            </form>
+                                       
                                         <img src="{% static "Images/like.gif" %}" style="width:20%;height: 20%">
                                         </div>
                                         <div class="col s6">
@@ -28,6 +21,7 @@
                                             <p>{{ receta.descripcio }}</p>
                                             <p>{{ receta.data_creacio }}</p>
                                             <p>{{ receta.usuario }}</p>
+                                            <p>{{ receta.vots.votstotal }}</p>
                                         </div>
                                     </div>
                                 </div>

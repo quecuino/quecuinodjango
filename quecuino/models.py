@@ -28,5 +28,7 @@ class Recepta(models.Model):
     vots = models.ManyToManyField(Usuari, related_name='likes',blank=True)
     imatge = models.CharField(max_length=50, default='')
 
+    def votstotals(self):
+        return self.vots.count()
 
 
