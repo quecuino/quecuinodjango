@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^registro/$',views.register, name='register'),
     url(r'^login/$',auth_views.login, name='login'),
     url(r'^like/$', views.like_receta, name='like_receta'),
+    url(r'^(?P<id>\d+)/(?P<nom_recepta>[\w-]+)/$', views.post_detail, name='post_detail'),
 ]
