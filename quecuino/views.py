@@ -34,9 +34,9 @@ def receta(request):
 
 
 def index(request):
-    recetas = Recepta.objects.all()
-    usuari = Usuari.objects.all()
-    return render(request, 'quecuino/index.html', {'recetas': recetas},{'usuari': usuari})
+    recetas = Recepta.objects.order_by()
+    is_liked = False
+    return render(request, 'quecuino/index.html', {'recetas': recetas},{'is_liked':is_liked})
 
 
 def register(request):
@@ -70,5 +70,13 @@ def logout(request):
 def like_receta(request):
     post = get_object_or_404(Recepta, id=request.POST.get('receta_id'))
     usuari = Usuari.objects.get(id=request.user.id)
-    post.vots.add(usuari)
-    return render (request, 'quecuino/index.html')
+    if post.vots.filter(id=request.user.id).exists():
+        post.vots.remove(request.user.id)
+        is_liked = False
+        return redirect('index')
+    else:
+        post.vots.add(usuari)
+        is_liked = True
+        return redirect('index')
+
+
