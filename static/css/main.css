@@ -1,9 +1,10 @@
 
+
   .modal{
    max-height:100%;
    overflow:hidden;
   }
-  
+
   input[type="submit"]{
     width: 100%;
     margin-top: 50px;
@@ -31,7 +32,7 @@
   .search:hover{
       height: 150%;
   }
-  
+
   body {
     display: flex;
     min-height: 100vh;
@@ -43,4 +44,15 @@
   }
   .dropdown-content{
     overflow: visible !important;
+}
+.card-title{
+   opacity: 0;
+        width:100%;
+
+}
+.card-title:hover{
+    background-color:black;
+    opacity: 0.8;
+    width:100%;
+    transition:0.25s;
 }

@@ -1,75 +1,50 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<main class="z-index:10">
+    <main class="z-index:10">
+        <div class="row">
+                            <div class="container">
+
             {% if recetas %}
-            {% for receta in recetas   %}
-                <div class="container">
-            <div class="row">
-                <div class="col s12">
-                    <ul class="collapsible popout">
-                        <li>
-                            <div class="collapsible-header">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col 4">
-                                       
-                                        <img src="{% static "Images/like.gif" %}" style="width:20%;height: 20%">
-                                        </div>
-                                        <div class="col s6">
-                                            <h5>{{ receta.nom_recepta }}</h5>
-                                            <p>{{ receta.descripcio }}</p>
-                                            <p>{{ receta.data_creacio }}</p>
-                                            <p>{{ receta.usuario }}</p>
-                                            <p>{{ receta.vots.votstotal }}</p>
-                                        </div>
-                                    </div>
-                                </div>
+                {% for receta in recetas %}
+                    <div class="col s12 m4 l4" style="margin-bottom:3%; margin-top: 3%;">
+                        <div class="card" style="width:95%; height: 80%">
+                            <div class="card-image">
+                                <img src="{% static "Images/plato.jpg" %}">
+                                   <span class="card-title">{{ receta.nom_recepta}}</span>
                             </div>
-                            <div class="collapsible-body container-fluid" style="background-color: white;">
-                                <span>
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col 12">
-                                            <img class="center-align" src="{% static "Images/plato.jpg" %}" style="width:100%; height:auto; margin-right:auto;margin-left:auto";>
-                                            <div class="col 12">
-                                                <h3>{{ receta.nom_recepta }}</h3>
-                                                <p>{{ receta.descripcio }}</p>
-                                            </div>
-                                            <div class="col 12">
-                                                <h5>Ingredients:</h5>
-                                                <p>{{ receta.ingredients }}</p>
-                                            </div>
-                                            <div class="col 12">
-                                                <h5>Procediment</h5>
-                                                <p>{{ receta.procediment }}</p>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </span>
+                            <div class="card-content">
+                                <p>Data: {{ receta.data_creacio }}</p>
+                                <p>Creat per: {{ receta.usuario }}</p>
+                                <p>Vots: {{ receta.vots}}</p>
                             </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-            {% endfor %}
+                            <div class="card-action">
+                                <a href="#modal1" class="modal-trigger">Veure recepta</a>
+                                <button class="btn" style="margin-bottom:1%; float:right">+1</button>
+                                <!-- Modal Structure !-->
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             {% else %}
                 <p>No he recibido respuestas de la base de datos</p>x
             {% endif %}
+                                                </div>
 
-<div class="fixed-action-btn" style="margin-bottom: 5%;">
-  <a class="btn-floating btn-large orange" id="scroll" >
-    <i class="large material-icons">publish</i>
-  </a>
-  <ul>
-       {% if user.is_authenticated %}
-    <li><a class="btn-floating orange modal-trigger" href="{% url 'receta' %}"><i class="material-icons">mode_edit</i></a>
-    </li>
-      {% endif %}
-  </ul>
-</div>
+        </div>
 
-</main>
+        <div class="fixed-action-btn" style="margin-bottom: 5%;">
+            <a class="btn-floating btn-large orange" id="scroll">
+                <i class="large material-icons">publish</i>
+            </a>
+            <ul>
+                {% if user.is_authenticated %}
+                    <li><a class="btn-floating orange modal-trigger" href="{% url 'receta' %}"><i
+                            class="material-icons">mode_edit</i></a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+
+    </main>
 {% endblock %}

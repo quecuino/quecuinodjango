@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
+from django.urls import reverse
 
 
 # Create your models here.
@@ -30,5 +31,8 @@ class Recepta(models.Model):
 
     def votstotals(self):
         return self.vots.count()
+
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[self.id, self.nom_recepta])
 
 
