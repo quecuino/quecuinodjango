@@ -9,3 +9,7 @@ from .models import Usuari, Recepta
 # Register your models here.
 admin.site.register(Usuari)
 admin.site.register(Recepta)
+
+
+class AdminEntries(admin.ModelAdmin):
+    prepopulated_fields = { 'slug': ['nom_recepta'],}

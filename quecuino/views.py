@@ -67,8 +67,8 @@ def logout(request):
     logout(request)
     return render(request, 'quecuino/index.html')
 
-def post_detail(request, id, nom_recepta):
-    post = Recepta.objects.get(id=id)
+def post_detail(request, id, slug):
+    post = get_object_or_404(Recepta, id=id, slug=slug)
     is_liked = False
     if post.vots.filter(id=request.user.id).exists():
         is_liked = True
@@ -83,12 +83,18 @@ def like_receta(request):
     post = get_object_or_404(Recepta, id=request.POST.get('post_id'))
     usuari = Usuari.objects.get(id=request.user.id)
     if post.vots.filter(id=request.user.id).exists():
+        print 'im not doing my part'
         post.vots.remove(request.user.id)
+        post.votsenumero = post.votstotals()
+        post.save()
         is_liked = False
-        return redirect('index')
+
     else:
+        print 'im doing my part'
         post.vots.add(usuari)
+        post.votsenumero = post.votstotals()
+        post.save()
         is_liked = True
-        return HttpResponseRedirect(post.get_absolute_url())
+    return HttpResponseRedirect(post.get_absolute_url())
 
 

@@ -3,8 +3,6 @@
     <main class="z-index:10">
     <div class="container" style=" margin-top:5%; margin-bottom:5%">
         <div class="card-panel hoverable ">
-            <form class="col s12" method="post" action="{% url 'register' %}">
-                {% csrf_token %}
                 <div class="row">
                     {{ post.nom_recepta }}
                     {{ post.descripcio }}
@@ -20,7 +18,7 @@
                                                     <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">Like</button>
                                                 {% endif %}
                                             </form>
-                </div></form>
+                </div>
         {{ post.votstotals }}
         </div>
     </div>

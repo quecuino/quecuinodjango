@@ -16,11 +16,10 @@
                             <div class="card-content">
                                 <p>Data: {{ receta.data_creacio }}</p>
                                 <p>Creat per: {{ receta.usuario }}</p>
-                                <p>Vots: {{ receta.vots}}</p>
                             </div>
                             <div class="card-action">
-                                <a href="" class="">Veure recepta</a>
-                                <button class="btn" style="margin-bottom:1%; float:right">+1</button>
+                                <a href="{% url 'blog:post_detail' receta.id receta.slug %}" class="">Veure recepta</a>
+                                <button class="btn" style="margin-bottom:1%; float:right">{{ receta.votsenumero}}</button>
                                 <!-- Modal Structure !-->
                             </div>
                         </div>
