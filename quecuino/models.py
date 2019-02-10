@@ -13,7 +13,6 @@ class Usuari(models.Model):
     nom = models.CharField(max_length=15)
     cognom = models.CharField(max_length=50)
     datanaixament = models.DateField()
-    sexe = models.CharField(max_length=6)
     email = models.EmailField()
 
     def __str__(self):

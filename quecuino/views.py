@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
 from quecuino.forms import FormUser, FormUserextendido, Formreceta
@@ -13,6 +13,10 @@ from quecuino.models import Usuari, Recepta
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import update_session_auth_hash
+from django.contrib import messages
+
+
 # Create your views here.
 
 @login_required
@@ -113,4 +117,19 @@ def profile(request):
         'usuario': usuario
     }
     return render(request, 'quecuino/profile.html', context)
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.success(request, 'Has canviat la contrasenya!')
+            return redirect('index')
+        else:
+            messages.error(request, 'No has possat be la contrasenya')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'quecuino/cambiarcontra.html', {'form':form})
+
 

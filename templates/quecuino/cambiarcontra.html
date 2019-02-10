@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+</main>
+
+    <main class="z-index:10">
+    <div class="container" style=" margin-top:5%; margin-bottom:5%">
+        <div class="card-panel hoverable ">
+            <form class="col s12" method="post" action="{% url 'change_password' %}">
+                {% csrf_token %}
+                <div class="row">
+                    <h5 class="center-align">Canvia la teva contrasenya!</h5>
+                    {{ form.as_p }}
+                    <button type="submit" value="">CANVIA</button>
+                </div></form>
+        </div>
+    </div>
+    </main>
+{% endblock %}

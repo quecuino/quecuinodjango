@@ -12,5 +12,6 @@ urlpatterns = [
     url(r'^like/$', views.like_receta, name='like_receta'),
     url(r'^(?P<id>\d+)/(?P<slug>[\w-]+)/$', views.post_detail, name='post_detail'),
     url(r'^usuaris/(?P<usuario_id>\d+)/(?P<usuario>[\w-]+)/$', views.user_detail, name='user_detail'),
-    url(r'usuaris/profile', views.profile, name='profile')
+    url(r'usuaris/profile/$', views.profile, name='profile'),
+    url(r'usuaris/profile/changepswd', views.change_password, name='change_password')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
