@@ -10,7 +10,7 @@
                         <div class="card" style="width:95%; height: 80%">
                             <div class="card-image">
                                 {% load static %}
-                                <img src="{{ receta.imatge }} ">
+                                <img src="{{ MEDIA_ROOT }}/{{ receta.imatge}} ">
                                    <span class="card-title">{{ receta.nom_recepta}}</span>
                             </div>
                             <div class="card-content">

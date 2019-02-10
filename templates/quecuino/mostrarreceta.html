@@ -10,6 +10,8 @@
                     {{ post.usuario }}
                     {{ post.ingredients }}
                     {{ post.procediment }}
+                   <img src="{{ MEDIA_ROOT }}/{{ post.imatge}}">
+                {% if user.is_authenticated %}
                          <form action="{% url 'like_receta' %}" method="POST">
                                                 {% csrf_token %}
                                                 {% if is_liked  %}
@@ -18,6 +20,7 @@
                                                     <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">Like</button>
                                                 {% endif %}
                                             </form>
+                {% endif %}
                 </div>
         {{ post.votstotals }}
         </div>

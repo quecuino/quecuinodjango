@@ -16,7 +16,7 @@
                             </div>
                             <div class="card-content">
                                 <p>Data: {{ receta.data_creacio }}</p>
-                                <p>Creat per: {{ receta.usuario }}</p>
+                                <p>Creat per: <a href="{% url 'user_detail' receta.usuario_id receta.usuario %}" class="">{{ receta.usuario }}</a></p>
                             </div>
                             <div class="card-action">
                                 <a href="{% url 'blog:post_detail' receta.id receta.slug %}" class="">Veure recepta</a>
