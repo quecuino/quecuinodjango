@@ -79,6 +79,13 @@ def post_detail(request, id, slug):
     }
     return render(request, 'quecuino/mostrarreceta.html',context)
 
+def user_detail(request, usuario_id, usuario):
+    recepta = Recepta.objects.filter(usuario_id=usuario_id)
+    context = {
+        'recepta':recepta
+    }
+    return render(request, 'quecuino/mostrarusuari.html',context)
+
 def like_receta(request):
     post = get_object_or_404(Recepta, id=request.POST.get('post_id'))
     usuari = Usuari.objects.get(id=request.user.id)

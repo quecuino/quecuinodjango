@@ -23,8 +23,8 @@ urlpatterns = [
     url('admin/', admin.site.urls),
     url('',include('quecuino.urls')),
     url('accounts/',include('django.contrib.auth.urls')),
-    url(r'^registro/$',views.register, name='register'),
-    url(r'^receta/$',views.receta, name='receta'),
+    url(r'^registre/$',views.register, name='register'),
+    url(r'^recepta/$',views.receta, name='receta'),
     url(r'^blog/', include('quecuino.urls', namespace='blog')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
