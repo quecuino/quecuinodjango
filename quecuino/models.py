@@ -14,6 +14,7 @@ class Usuari(models.Model):
     cognom = models.CharField(max_length=50)
     datanaixament = models.DateField()
     email = models.EmailField()
+    hacceptat = models.BooleanField()
 
     def __str__(self):
         return self.user.username

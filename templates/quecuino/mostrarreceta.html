@@ -4,25 +4,41 @@
     <div class="container" style=" margin-top:5%; margin-bottom:5%">
         <div class="card-panel hoverable ">
                 <div class="row">
-                    {{ post.nom_recepta }}
-                    {{ post.descripcio }}
-                    {{ post.data_creacio }}
-                    {{ post.usuario }}
-                    {{ post.ingredients }}
-                    {{ post.procediment }}
-                   <img src="{{ MEDIA_ROOT }}/{{ post.imatge}}">
-                {% if user.is_authenticated %}
+                <div class="col s12 m6 l6">
+                    <h3>{{ post.nom_recepta }}</h3>
+                    <p><b>Data: </b>{{ post.data_creacio }}</p>
+                    <p><b>Autor: </b><a href="{% url 'user_detail' post.usuario_id post.usuario %}" class="orange-text">{{ post.usuario }}</a></p>
+                    <img src="{{ MEDIA_ROOT }}/{{ post.imatge}}" style="width: 100%; max-width: 500px;">
+                     {% if user.is_authenticated %}
                          <form action="{% url 'like_receta' %}" method="POST">
                                                 {% csrf_token %}
                                                 {% if is_liked  %}
-                                                <button type="submit" name="post_id" value="{{ post.id }}" class="btn red">Dislike</button>
+                                                    <br>
+                                                <button type="submit" name="post_id" value="{{ post.id }}" class="btn-floating btn red"> <i class="large material-icons">thumb_down</i></button>
                                                  {% else %}
-                                                    <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">Like</button>
+                                                    <br>
+                                                    <button type="submit" name="post_id" value="{{ post.id }}" class="btn-floating btn btn-primary"> <i class="large material-icons">thumb_up</i></button>
                                                 {% endif %}
                                             </form>
                 {% endif %}
+                <br>
+                    <button class="btn-floating">{{ post.votstotals }}</button>
                 </div>
-        {{ post.votstotals }}
+                <div class="col s12 m6 l6" style="margin-top: 2%">
+                    <h5>Descripció del plat</h5>
+                    <hr>
+                    <p>{{ post.descripcio }}</p>
+                    <h5>Ingredients</h5>
+                    <hr>
+                    <br>
+                    {{ post.ingredients }}
+                    <h5>Procediments</h5>
+                    <hr>
+                    <br>
+                    {{ post.procediment }}
+                    <br>
+                </div>
+                </div>
         </div>
     </div>
 
