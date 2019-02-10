@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{% static "css/materialize.css" %}">
     <!-- Compiled and minified JavaScript -->
     <script src="{% static "js/materialize.js" %}"></script>
+    {% block head%}
+    {% endblock %}
     <script src="{% static 'js/main.js' %}"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/main.css' %}" />
 
@@ -25,7 +27,10 @@
     <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper grey darken-4">
-                <a href="{% url 'index' %}"><img src="{% static 'Images/logo.png' %}" style="width: 150px" href="#" class="brand-logo"></img></a>           <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <a href="{% url 'index' %}"><img src="{% static 'Images/logo.png' %}" style="width: 150px" href="#" class="brand-logo">
+                      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a  data-target='dropdown1'  href="#registro" class="dropdown-trigger  orange lighten-2"><i class="material-icons right">person</i>Bienvingut,{{ user.get_username }}</a>
 
                     <!-- Dropdown Structure -->
@@ -37,6 +42,10 @@
             </ul>
         </div>
     </nav>
+    <ul class="sidenav" id="mobile-demo">
+     <li><a href="{% url 'profile' %}"><i class="material-icons">perm_identity</i>Perfil</a></li>
+        <li><a href="{% url 'logout' %}"><i class="material-icons">exit_to_app</i>Log Out</a></li>
+  </ul>
     </div>
     {% else %}
     <nav>
@@ -73,7 +82,7 @@
                 <br>
                 <a href="{% url 'register' %}">No tens compte? Registrat aquí</a>
                 <br>
-                <input type="submit" value="login" class="brown darken-2 btn btn-large">
+                <input type="submit" value="login" class="orange lighten-2 btn btn-large" style="width: 35%;">
                 <input type="hidden" name="next" value="{{ next }}">
             </form>
         </div>
@@ -83,32 +92,29 @@
     {% endblock %}
 
     <!-- FOOTER -->
-        <footer class="page-footer grey darken-4">
-        <div class="container" >
+{% load static %}
+         <footer class="page-footer grey darken-4 ">
+          <div class="container">
             <div class="row">
-                <div class="col s12">
-                    <div class="col s6">
-                        <h5>QueCuino.cat</h5>
-                        <ul>
-                            <li>Vols mes informació sobre el projecte? Clica aquí</li>
-                            <li></li>
-                        </ul>
-                    </div>
-                    <div class="row">
-                        <div class="col s6">
-                            <h5>Patrocinadors</h5>
-                            <a href="http://www.dinahosting.com"><img src="{% static "Images/dinahosting.jpg" %}"></a>
-                            <a href="http://www.websalpunt.cat"><img style="height:120px; width:120px" src="{% static "Images/puntcat.png" %}"></a>
-                            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Llicència de Creative Commons"
-                                    style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><a
-                                rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"></a>
-                        </div>
-                    </div>
-                </div>
+              <div class="col l6 s12">
+                <h5 class="white-text">Patrocinadors</h5>
+                  <div>
+                      <img src="{% static "Images/dinahosting-logo.png"%}" style="margin:2%; max-width:200px; max-height:200px;">
+                      <img src="{% static "Images/puntcat.png   "%}" style="margin:2%;  max-width:50px; max-height:50px;">
+                      <div></div>
+                  </div>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Apartats</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Rankings (Proximament)</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!" style="margin-bottom:3%">Més informació sobre QueCuino</a></li>
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Llicència de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br /><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"></a>
+                </ul>
+              </div>
             </div>
-        </div>
-        </div>
-    </footer>
+          </div>
+        </footer>
 </body>
 
 </html>

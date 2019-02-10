@@ -118,6 +118,7 @@ def profile(request):
     }
     return render(request, 'quecuino/profile.html', context)
 
+@login_required
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
