@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+ <main class="z-index:10">
+        <div class="row">
+                            <div class="container">
+
+
+                {% for receta in recepta %}
+                    <div class="col s12 m4 l4" style="margin-bottom:3%; margin-top: 3%;">
+                        <div class="card" style="width:95%; height: 80%">
+                            <div class="card-image">
+                                {% load static %}
+                                <img src="{{ receta.imatge }} ">
+                                   <span class="card-title">{{ receta.nom_recepta}}</span>
+                            </div>
+                            <div class="card-content">
+                                <p>Data: {{ receta.data_creacio }}</p>
+                                <p>Creat per: {{ receta.usuario }}</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="{% url 'blog:post_detail' receta.id receta.slug %}" class="">Veure recepta</a>
+                                <button class="btn" style="margin-bottom:1%; float:right">{{ receta.votsenumero}}</button>
+                                <!-- Modal Structure !-->
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                                                </div>
+
+        </div>
+
+        <div class="fixed-action-btn" style="margin-bottom: 5%;">
+            <a class="btn-floating btn-large orange" id="scroll">
+                <i class="large material-icons">publish</i>
+            </a>
+            <ul>
+                {% if user.is_authenticated %}
+                    <li><a class="btn-floating orange modal-trigger" href="{% url 'receta' %}"><i
+                            class="material-icons">mode_edit</i></a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+
+    </main>
+{% endblock %}
