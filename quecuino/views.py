@@ -131,5 +131,7 @@ def change_password(request):
     else:
         form = PasswordChangeForm(request.user)
     return render(request, 'quecuino/cambiarcontra.html', {'form':form})
+def lopd(request):
+    return render(request, 'registration/LOPD.html',)
 
 

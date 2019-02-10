@@ -22,11 +22,12 @@ class FormUserextendido(forms.ModelForm):
     class Meta:
 
         model = Usuari
-        fields = [ 'nom','cognom','email','datanaixament' ]
+        fields = [ 'nom','cognom','email','datanaixament','hacceptat' ]
         labels ={'nom':'Nom',
                  'cognom':'Cognom',
                  'sexe':'Sexe',
-                 'datanaixament':'Data naixament'
+                 'datanaixament':'Data naixament',
+                 'hacceptat':'Termes de condicions'
                  }
 class Formreceta(forms.ModelForm):
 

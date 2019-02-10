@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^(?P<id>\d+)/(?P<slug>[\w-]+)/$', views.post_detail, name='post_detail'),
     url(r'^usuaris/(?P<usuario_id>\d+)/(?P<usuario>[\w-]+)/$', views.user_detail, name='user_detail'),
     url(r'usuaris/profile/$', views.profile, name='profile'),
-    url(r'usuaris/profile/changepswd', views.change_password, name='change_password')
+    url(r'usuaris/profile/changepswd/$', views.change_password, name='change_password'),
+    url(r'registre/LOPD$', views.lopd, name='lopd')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
