@@ -1,22 +1,35 @@
-{% extends "base.html" %}
-{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
 {% block content %}
-    <main class="z-index:10">
+ <main class="z-index:10">
         <div class="row">
-                            <div class="container">
-
-            {% if recetas %}
-                {% for receta in recetas %}
+            <div class="container">
+                <div class="card-panel hoverable">
+                    {% for usuari in usuario %}
+                    <p>{{ usuari.user }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container">
+                {% for receta in recepta %}
                     <div class="col s12 m4 l4" style="margin-bottom:3%; margin-top: 3%;">
                         <div class="card" style="width:95%; height: 80%">
                             <div class="card-image">
                                 {% load static %}
-                                <img src="{{ receta.imatge }} ">
+                                <img src="{{ MEDIA_ROOT }}/{{ receta.imatge}} ">
                                    <span class="card-title">{{ receta.nom_recepta}}</span>
                             </div>
                             <div class="card-content">
                                 <p>Data: {{ receta.data_creacio }}</p>
-                                <p>Creat per: <a href="{% url 'user_detail' receta.usuario_id receta.usuario %}" class="orange-text">{{ receta.usuario }}</a></p>
+                                <p>Creat per: {{ receta.usuario }}</p>
                             </div>
                             <div class="card-action">
                                 <a href="{% url 'blog:post_detail' receta.id receta.slug %}" class="">Veure recepta</a>
@@ -26,9 +39,6 @@
                         </div>
                     </div>
                 {% endfor %}
-            {% else %}
-                <p>No he recibido respuestas de la base de datos</p>x
-            {% endif %}
                                                 </div>
 
         </div>
@@ -48,3 +58,5 @@
 
     </main>
 {% endblock %}
+</body>
+</html>

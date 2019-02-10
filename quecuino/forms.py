@@ -2,7 +2,7 @@ from django import forms
 from quecuino.models import Usuari, Recepta
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-
+from django.forms.extras.widgets import SelectDateWidget
 
 class FormUser(UserCreationForm):
     class Meta:
@@ -20,23 +20,30 @@ class FormUser(UserCreationForm):
 
 class FormUserextendido(forms.ModelForm):
     class Meta:
+
         model = Usuari
-        fields = [ 'nom','cognom','sexe','datanaixament','email', ]
+        fields = [ 'nom','cognom','email','datanaixament' ]
         labels ={'nom':'Nom',
                  'cognom':'Cognom',
                  'sexe':'Sexe',
                  'datanaixament':'Data naixament'
                  }
-        widgets = {
-            'datanaixament':forms.DateInput()
-        }
-
-
 class Formreceta(forms.ModelForm):
 
     class Meta:
         model = Recepta
         fields =[ 'nom_recepta', 'descripcio', 'ingredients', 'procediment','imatge']
+        widgets = {
+            'descripcio' : forms.Textarea(attrs={'rows':6,
+                                            'cols':22,
+                                            'style':'resize:none;'}),
+            'ingredients': forms.Textarea(attrs={'rows': 6,
+                                                'cols': 22,
+                                                'style': 'resize:none;'}),
+            'procediment': forms.Textarea(attrs={'rows': 6,
+                                                'cols': 22,
+                                                'style': 'resize:none;'}),
+        }
 
 
 

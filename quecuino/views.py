@@ -12,9 +12,10 @@ from quecuino.forms import FormUser, FormUserextendido, Formreceta
 from quecuino.models import Usuari, Recepta
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-
+@login_required
 def receta(request):
     print('entra')
     if request.method == 'POST':
@@ -103,5 +104,13 @@ def like_receta(request):
         post.save()
         is_liked = True
     return HttpResponseRedirect(post.get_absolute_url())
-
+@login_required
+def profile(request):
+    usuario = Usuari.objects.filter(user_id=request.user.id)
+    recepta = Recepta.objects.filter(usuario_id=request.user.id)
+    context = {
+        'recepta': recepta,
+        'usuario': usuario
+    }
+    return render(request, 'quecuino/profile.html', context)
 
