@@ -2,9 +2,8 @@
 {% block content %}
  <main class="z-index:10">
         <div class="row">
-            <div class="container">
-
-
+            <div class="container" style="background-color:white">
+                <h4 style="padding-top:5%; padding-bottom:5%" class="center-align">Receptes creades per aquest usuari</h4>
                 {% for receta in recepta %}
 
                      <div class="col s12 m6 l4" style="margin-bottom:3%; margin-top: 3%;">
@@ -21,12 +20,11 @@
                             <div class="card-action">
                                 <a href="{% url 'blog:post_detail' receta.id receta.slug %}" class="">Veure recepta</a>
                                 <button class="btn" style="margin-bottom:1%; float:right">{{ receta.votsenumero}}</button>
-                                <!-- Modal Structure !-->
                             </div>
                         </div>
                     </div>
                 {% endfor %}
-                                                </div>
+            </div>
 
         </div>
 

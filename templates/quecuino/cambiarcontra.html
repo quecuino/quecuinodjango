@@ -12,10 +12,12 @@
             <form class="col s12" method="post" action="{% url 'change_password' %}">
                 {% csrf_token %}
                 <div class="row">
-                    <h5 class="center-align">Canvia la teva contrasenya!</h5>
+                    <h5 class="center-align">Canvia la teva contrasenya</h5>
                     {{ form.as_p }}
-                    <button type="submit" value="">CANVIA</button>
-                </div></form>
+                    <div class="center-align">
+                    <button class=" orange lighten-2 btn btn-large" type="submit" value="">CANVIA</button>
+                    </div>
+                    </div></form>
         </div>
     </div>
     </main>

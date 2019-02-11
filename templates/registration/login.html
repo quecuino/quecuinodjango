@@ -12,10 +12,10 @@
     </main>
     {% else %}
 <main>
-    <div class="container" style="background-color: white; margin-top: 8%; max-width:80%;">
         <div class="row">
-            <div class="col s12 m7 l7">
-                <h3 class="center-align">Benvinguts a QueCuino</h3>
+        <div class="container" style="margin-top:2%; margin-left:35%; background-color:white ">
+        <div style="background-color: white; margin:0 auto" class="center-align col s12 l6 m6">
+                        <h5 class="center-align">Benvinguts a QueCuino</h5>
                 {% if form.errors %}
                     <script>
                         M.toast({html: 'UPPPPPPPPS! Sembla que hi ha un error.', classes: 'rounded'});
@@ -34,12 +34,12 @@
                     <i class="material-icons prefix">lock</i>
                     {{ form.password }}
                     </div>
-                    <button class="orange lighten-3 btn btn-large" type="submit" value='login'>Entrar</button>
+                    <button style="margin-bottom: 5%" class="orange lighten-3 btn btn-large" type="submit" value='login'>Entrar</button>
                     <input type="hidden" name="next" value="{{ next }}">
                 </form>
-            </div>
         </div>
-    </div>
+        </div>
+        </div>
 </main>
 {% endif %}
 {% endblock %}

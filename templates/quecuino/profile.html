@@ -7,13 +7,15 @@
             <div class="container">
                 <div class="card-panel hoverable">
                     {% for usuari in usuario %}
-                    <h3 class="center-align">PERFIL D'USUARI</h3>
-                    <h5><b>Usuari: </b>{{ usuari.user }}</h5>
-                    <h5><b>Email: </b>{{ usuari.email }}</h5>
-                        <h5><b>Data de neixament: </b>{{ usuari.datanaixament }}</h5>
-                        <h5><b>Nom i cognom: </b>{{ usuari.nom }} {{ usuari.cognom }}</h5>
-                        <button href="{% url 'change_password' %}" class="btn btn-large">Canviar contrasenya</a></button>
+                    <h4 class="center-align">PERFIL D'USUARI</h4>
+                    <p><b>Usuari: </b>{{ usuari.user }}</p>
+                    <p><b>Email: </b>{{ usuari.email }}</p>
+                        <p><b>Data de neixament: </b>{{ usuari.datanaixament }}</p>
+                        <p><b>Nom i cognom: </b>{{ usuari.nom }} {{ usuari.cognom }}</p>
+                        <a href="{% url 'change_password' %}" class="orange lighten-2 btn btn-large">Canviar contrasenya</a>
                     {% endfor %}
+                    <h5>Aquestes son les receptes que has pujat: </h5>
+                                    <hr style="width:40%">
                 </div>
             </div>
         </div>

@@ -135,4 +135,4 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LIKE_RECETA_REDIRECT_URL = '/'
 MEDIA_URL = '/static/Images/'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'quecuinodjango2')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'quecuinodjango')
