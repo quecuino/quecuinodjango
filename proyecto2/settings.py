@@ -77,16 +77,16 @@ WSGI_APPLICATION = 'proyecto2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'quecuinodb',
-        'USER': 'quecuinodatab',
-        'PASSWORD': 'Manzanapodrida22',
-        'HOST': 'hl379.dinaserver.com',  # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
-        'STORAGE_ENGINE': 'INNODB'
+        #'ENGINE': 'django.db.backends.mysql',
+        #'NAME': 'quecuinodb',
+        #'USER': 'quecuinodatab',
+        #'PASSWORD': 'Manzanapodrida22',
+        #'HOST': 'hl379.dinaserver.com',  # Or an IP Address that your DB is hosted on
+        #'PORT': '3306',
+        #'STORAGE_ENGINE': 'INNODB'
 
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': 'mydatabase2',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'quecuinodb',
     }
 }
 
@@ -135,4 +135,4 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LIKE_RECETA_REDIRECT_URL = '/'
 MEDIA_URL = '/static/Images/'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'quecuinodjango')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'proyecto2')

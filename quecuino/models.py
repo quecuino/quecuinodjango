@@ -10,7 +10,7 @@ from django.utils.text import slugify
 # Create your models here.
 class Usuari(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    nom = models.CharField(max_length=15)
+    nom = models.CharField(max_length=15, unique=True)
     cognom = models.CharField(max_length=50)
     datanaixament = models.DateField()
     email = models.EmailField()

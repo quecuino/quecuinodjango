@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="cat">
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sobrenosotros.css' %}">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+            <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark">
+                <a class="navbar-brand js-scroll-trigger" href="#"><img src="imagenes/logoh.jpg" height="50px" width="100px"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                      <a class="nav-link js-scroll-trigger" href="#queesquecuino">Què és QueCuino</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link js-scroll-trigger" href="#comhohemfet">Com ho hem fet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#equip">El nostre equip</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#sponsors">Sponsors</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link js-scroll-trigger" href="#contacte">Contacte</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+              <header>
+                <div class="container">
+                  <div class="intro-text">
+                    <div class="intro-heading">Benvinguts a QueCuino</div>
+                    <div class="intro-heading2">Per una cuina més compartida</div>
+                  </div>
+                </div>
+              </header>
+        <div id="queesquecuino">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <h2>Què és QueCuino</h2>
+              </div>
+            </div>
+            <div class="row text-center">
+              <div class="col-md-6">
+                  <p>QueCuino va néixer com la idea de fer què la gent apasionada per la cuina puguès compartir els seus plats. El nostre objectiu amb aquest projecte és oferir aquesta possibilitat a la gent i incentivar el fet de pujar les seves receptes un sistema de vots.</p>
+                  <p>Esperem que la nostre proposta agradi a la gent i puguin gaudir de la nostra aplicació.</p>
+              </div>
+              <div class="col-md-6">
+                <img src="imagenes/logoh.jpg" height="100%" width="100%">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="comhohemfet">
+          <div class="container">
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <h2>Com ho hem fet</h2>
+                  <h3>Les tecnologies que hem utilitzat</h3>
+                </div>
+              </div>
+              <div class="row text-center">
+                <div class="col-md-4">
+                  <span class="fa-stack fa-4x">
+                    <img src="imagenes/django.png"></image>
+                  </span>
+                  <h4 class="service-heading">Django</h4>
+                </div>
+                <div class="col-md-4">
+                  <span class="fa-stack fa-4x">
+                    <img src="imagenes/bootstrap.jpg" height="128px" width="128px">
+                  </span>
+                  <h4 class="service-heading">Bootstrap</h4>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <img src="imagenes/materialize.png" height="128px" width="128px">
+                    </span>
+                    <h4 class="service-heading">Materialize</h4>
+                  </div>
+              </div>
+              <div class="row text-center">
+                  <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <img src="imagenes/mariadb.png" height="128px" width="128px">
+                    </span>
+                    <h4 class="service-heading">MariaDB</h4>
+                  </div>
+                  <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                      <img src="imagenes/power.png" height="128px" width="128px">
+                    </span>
+                    <h4 class="service-heading">PowerDesigner</h4>
+                  </div>
+                  <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                      <img src="imagenes/star.png" height="128px" width="128px">
+                    </span>
+                    <h4 class="service-heading">StarUML</h4>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div id="equip">
+            <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 text-center">
+                    <h2>El nostre equip</h2>
+                  </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4 mb-md-0 mb-5">
+                      <div class="avatar mx-auto">
+                        <img src="imagenes/eric.png" height="300px" width="300px" class="rounded z-depth-1-half" alt="Sample avatar">
+                      </div>
+                      <h4 class="font-weight-bold dark-grey-text my-4">Eric Perez</h4>
+                      <h6 class="text-uppercase grey-text mb-3"><strong>Dissenyador web</strong></h6>
+                      <a class="btn-floating btn-sm mx-1 mb-0 btn-fb fa fa-facebook"></a>
+                      <a class="btn-floating btn-sm mx-1 mb-0 btn-tw fa fa-twitter"></a>
+                      <a class="btn-floating btn-sm mx-1 mb-0 btn-tw fa fa-linkedin"></a>
+                    </div>
+                    <div class="col-md-4 mb-md-0 mb-5">
+                      <div class="avatar mx-auto">
+                        <img src="imagenes/pablo.png" height="300px" width="300px" class="rounded z-depth-1-half" alt="Sample avatar">
+                      </div>
+                      <h4 class="font-weight-bold dark-grey-text my-4">Pablo Fernández</h4>
+                      <h6 class="text-uppercase grey-text mb-3"><strong>Desenvolupador web</strong></h6>
+                      <a class="btn-floating btn-sm mx-1 mb-0 btn-fb fa fa-facebook"></a>
+                      <a class="btn-floating btn-sm mx-1 mb-0 btn-tw fa fa-twitter"></a>
+                      <a class="btn-floating btn-sm mx-1 mb-0 btn-tw fa fa-linkedin"></a>
+                    </div>
+                    <div class="col-md-4 mb-md-0 mb-5">
+                      <div class="avatar mx-auto">
+                        <img src="imagenes/yuste.png" height="300px" width="300px" class="rounded z-depth-1-half" alt="Sample avatar">
+                      </div>
+                      <h4 class="font-weight-bold dark-grey-text my-4">David Yuste</h4>
+                      <h6 class="text-uppercase grey-text mb-3"><strong>Dissenyador web</strong></h6>
+                      <a class="btn-floating btn-sm mx-1 mb-0 btn-fb fa fa-facebook"></a>
+                      <a class="btn-floating btn-sm mx-1 mb-0 btn-tw fa fa-twitter"></a>
+                      <a class="btn-floating btn-sm mx-1 mb-0 btn-tw fa fa-linkedin"></a>
+                    </div>
+                  </div>
+              </div>
+        </div>
+        <div id="sponsors">
+          <div class="container">
+            <div class="row text-center">
+              <div class="col-lg-12">
+                <h2>Sponsors</h2>
+              </div>
+            </div>
+            <div class="row text-center">
+              <div class="col-md-6">
+                <div class="avatar mx-auto">
+                  <img src="imagenes/dina.jpg" height="250px" width="250px">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="avatar mx-auto">
+                  <img src="imagenes/websalpunt.png" height="250px" width="250px">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="contacte">
+            <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 text-center">
+                    <h2>Contacte</h2>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                      <p>Per qualsevol dubte contacta amb nosaltres:</p>
+                      <p><i class="fas fa-school"></i> C/ Arquitecte Pelai Martinez 1, 17600 Figueres</p>
+                      <p><i class="fas fa-envelope"></i> quecuino@quecuino.cat</p>
+                      <p><i class="fas fa-phone"></i> 972 50 79 08</p>
+                      <p><i class="fas fa-fax"></i> 972 50 79 08</p>
+                  </div>
+                  <div class="col-md-6 map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11810.157464891352!2d2.96755824771191!3d42.26700854247268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12ba8dd91251e3ff%3A0xe8dfb11cd9cdef78!2sInstitut+Cendrassos!5e0!3m2!1ses!2ses!4v1549038612381" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4 text-center enllaç">
+                <p><b>ENLLAÇOS</b></p>
+                <a href="#">Home</a><br>
+                <a href="#queesquecuino">Què és Quecuino</a><br>
+                <a href="#comhohemfet">Com ho hem fet</a><br>
+                <a href="#equip">Equip</a><br>
+                <a href="#sponsors">Sponsors</a><br>
+                <a href="#contacte">Contacte</a>
+              </div>
+              <div class="col-md-4 text-center contacte">
+                <p><b>INFORMACIÓ DE CONTACTE</b></p>
+                <p>C/ Arquitecte Pelai Martinez, 1</p>
+                <p>17600 Figueres, Girona</p>
+                <p>Catalunya</p>
+                <p>Telèfon: 972 50 79 08</p>
+                <p>Fax: 972 50 79 08</p>
+                <p>Email: quecuino@quecuino.cat</p>
+              </div>
+              <div class="col-md-4 text-center segueix">
+                <p><b>SEGUEIX-NOS</b></p>
+                <div class="icons">
+                  <a class="btn-floating btn-sm mx-1 mb-0 btn-fb fa fa-facebook"></a>
+                  <a class="btn-floating btn-sm mx-1 mb-0 btn-tw fa fa-twitter"></a>
+                  <a class="btn-floating btn-sm mx-1 mb-0 btn-tw fa fa-linkedin"></a>
+                  <a class="btn-floating btn-sm mx-1 mb-0 btn-tw fa fa-google"></a>
+                  <a class="btn-floating btn-sm mx-1 mb-0 btn-tw fa fa-youtube"></a>
+                  <a class="btn-floating btn-sm mx-1 mb-0 btn-tw fa fa-pinterest"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script>
+    $(window).scroll(function(){
+      if($("#navbar").offset().top>500){
+        $("#navbar").addClass("bg-dark");
+      }
+      else{
+        $("#navbar").removeClass("bg-dark");
+      }
+    });
+</script>
+</html>

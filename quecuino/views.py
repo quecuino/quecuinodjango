@@ -135,4 +135,5 @@ def change_password(request):
 def lopd(request):
     return render(request, 'registration/LOPD.html',)
 
-
+def sobrenos(request):
+    return render(request, 'quecuino/sobreelequip.html')
